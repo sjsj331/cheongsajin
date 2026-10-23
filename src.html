@@ -49,6 +49,7 @@ button{cursor:pointer}
   background-position:center,-1px -1px,-1px -1px,-1px -1px,-1px -1px}
 #stage::after{content:"";position:absolute;inset:10px;border:1px solid rgba(232,244,255,.35);outline:1px solid rgba(232,244,255,.12);outline-offset:4px;pointer-events:none;z-index:3}
 #gl{position:absolute;inset:0;width:100%;height:100%;touch-action:none;display:block;filter:drop-shadow(0 0 2px rgba(150,215,255,.75))}
+body.lq #gl{filter:none}
 #labels{position:absolute;inset:0;pointer-events:none;z-index:2;overflow:hidden}
 .lbl{position:absolute;left:0;top:0;white-space:nowrap;will-change:transform;opacity:0;transition:opacity .5s;text-shadow:0 0 6px rgba(6,34,74,.95),0 0 2px rgba(6,34,74,1)}
 .lbl.show{opacity:1}
@@ -75,7 +76,7 @@ button{cursor:pointer}
 #plan .room:hover rect.rbg{fill:rgba(127,219,255,.12)}
 body.view-plan #plan{display:block}
 body.view-plan #gl,body.view-plan #labels,body.view-plan .legend,body.view-plan .titleblock{display:none}
-.titleblock{transition:opacity .25s;position:absolute;right:22px;bottom:22px;z-index:4;width:300px;border:1.5px solid var(--line);background:rgba(8,40,86,.82);backdrop-filter:blur(3px);font-size:12px;display:grid;grid-template-columns:62px 1fr 52px 1fr}
+.titleblock{transition:opacity .25s;position:absolute;right:22px;bottom:22px;z-index:4;width:300px;border:1.5px solid var(--line);background:rgba(8,40,86,.9);font-size:12px;display:grid;grid-template-columns:62px 1fr 52px 1fr}
 .titleblock>div{border-right:1px solid rgba(232,244,255,.5);border-bottom:1px solid rgba(232,244,255,.5);padding:5px 7px;min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
 .titleblock .k{font:600 9.5px var(--mono);color:var(--cyan);letter-spacing:.06em;display:flex;align-items:center}
 .titleblock .v{font-weight:700}
@@ -91,9 +92,9 @@ body.view-plan #gl,body.view-plan #labels,body.view-plan .legend,body.view-plan 
 .legend i.h{border-style:dashed;opacity:.6}
 .legend i.c{width:6px;margin:0 13px 0 6px}
 .legend i.s{border-color:var(--hl);background:rgba(255,211,107,.18)}
-.dock{position:absolute;left:50%;bottom:22px;transform:translateX(-50%);z-index:6;display:flex;gap:6px;padding:6px;border:1px solid var(--bd);background:rgba(6,30,66,.88);backdrop-filter:blur(6px);border-radius:14px;box-shadow:0 10px 30px rgba(0,0,0,.3)}
+.dock{position:absolute;left:50%;bottom:22px;transform:translateX(-50%);z-index:6;display:flex;gap:6px;padding:6px;border:1px solid var(--bd);background:rgba(6,30,66,.94);border-radius:14px;box-shadow:0 10px 30px rgba(0,0,0,.3)}
 .dock .btn{border-radius:10px;padding:8px 12px}
-#panel{position:absolute;top:0;right:0;bottom:0;width:380px;max-width:100%;z-index:10;background:var(--panel);border-left:1px solid var(--bd);transform:translateX(105%);transition:transform .32s cubic-bezier(.2,.8,.2,1);display:flex;flex-direction:column;backdrop-filter:blur(8px);box-shadow:-20px 0 40px rgba(0,0,0,.25)}
+#panel{position:absolute;top:0;right:0;bottom:0;width:380px;max-width:100%;z-index:10;background:rgba(6,30,66,.985);border-left:1px solid var(--bd);transform:translateX(105%);transition:transform .32s cubic-bezier(.2,.8,.2,1);display:flex;flex-direction:column;box-shadow:-20px 0 40px rgba(0,0,0,.25)}
 #panel.open{transform:none}
 .p-head{display:flex;align-items:center;gap:8px;padding:14px 16px 10px;border-bottom:1px dashed var(--bd)}
 .crumb{font:600 10.5px var(--mono);letter-spacing:.1em;color:var(--cyan);flex:1;min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
@@ -126,7 +127,7 @@ li.done input{color:var(--dim);text-decoration:line-through}
 .p-foot{display:flex;gap:8px;justify-content:space-between;padding:12px 16px calc(12px + var(--safe-b));border-top:1px dashed var(--bd)}
 .hint{font-size:12px;color:var(--dim);line-height:1.6}
 .sec{margin-top:18px}
-.modal-wrap{position:fixed;inset:0;z-index:40;background:rgba(2,14,34,.6);backdrop-filter:blur(3px);display:none;align-items:center;justify-content:center;padding:18px}
+.modal-wrap{position:fixed;inset:0;z-index:40;background:rgba(2,14,34,.72);display:none;align-items:center;justify-content:center;padding:18px}
 .modal-wrap.open{display:flex;animation:fade .2s}
 @keyframes fade{from{opacity:0}}
 .modal{width:100%;max-width:620px;max-height:calc(100% - 10px);display:flex;flex-direction:column;background:linear-gradient(180deg,#0a2f63,#082757);border:1.5px solid var(--line);box-shadow:0 0 0 4px rgba(232,244,255,.08),0 30px 80px rgba(0,0,0,.45);position:relative}
@@ -171,7 +172,7 @@ li.done input{color:var(--dim);text-decoration:line-through}
 .menu .mobile-only{display:none}
 #toast{position:fixed;left:50%;top:70px;transform:translateX(-50%) translateY(-10px);z-index:60;background:#e8f4ff;color:#082c5c;font-weight:700;font-size:14px;padding:10px 16px;border-radius:10px;opacity:0;pointer-events:none;transition:.25s;box-shadow:0 10px 30px rgba(0,0,0,.3);max-width:calc(100% - 30px);text-align:center}
 #toast.show{opacity:1;transform:translateX(-50%)}
-.welcome{position:absolute;left:22px;top:22px;z-index:5;width:330px;max-width:calc(100% - 44px);border:1.5px solid var(--line);background:rgba(8,40,86,.92);backdrop-filter:blur(4px);padding:14px 16px;animation:fade .5s}
+.welcome{position:absolute;left:22px;top:22px;z-index:5;width:330px;max-width:calc(100% - 44px);border:1.5px solid var(--line);background:rgba(8,40,86,.95);padding:14px 16px;animation:fade .5s}
 .welcome .tag{font:600 10px var(--mono);letter-spacing:.2em;color:var(--hl)}
 .welcome h3{margin:6px 0 6px;font-size:16px;line-height:1.45}
 .welcome p{margin:0 0 12px;font-size:12.5px;line-height:1.65;color:#cfe4ff}
@@ -392,11 +393,36 @@ function yearSpan() {
 /* ---------------- three.js 장면 ---------------- */
 const canvas = $("#gl"), stage = $("#stage"), labelsEl = $("#labels");
 let renderer = null;
-try { renderer = new THREE.WebGLRenderer({ canvas, antialias: true, alpha: true, preserveDrawingBuffer: true }); } catch (e) { renderer = null; }
+/* 성능: 소프트웨어 WebGL(하드웨어 가속 꺼짐 등) 감지 → 저화질 모드 */
+function glRendererName() {
+  try {
+    const c = document.createElement("canvas"), gl = c.getContext("webgl2") || c.getContext("webgl"); if (!gl) return "";
+    const ext = gl.getExtension("WEBGL_debug_renderer_info");
+    const n = String(gl.getParameter(ext ? ext.UNMASKED_RENDERER_WEBGL : gl.RENDERER) || "");
+    const lc = gl.getExtension("WEBGL_lose_context"); if (lc) lc.loseContext();
+    return n;
+  } catch (e) { return ""; }
+}
+const GL_NAME = glRendererName();
+const SOFT_GL = /swiftshader|llvmpipe|softpipe|software|basic render/i.test(GL_NAME);
+const Q_FORCE = (location.search.match(/[?&]q=(high|mid|low)/) || [])[1];
+/* 화질 단계: 2=기본(글로우·고해상도) 1=해상도 낮춤 0=저화질(글로우 끔·해상도 더 낮춤). 픽셀 예산 = 캔버스 실제 픽셀 수 상한 */
+const QL = [{ budget: 0.9e6, minPr: 0.75, glow: false }, { budget: 1.5e6, minPr: 1, glow: true }, { budget: 2.6e6, minPr: 1, glow: true }];
+let qLevel = Q_FORCE ? { low: 0, mid: 1, high: 2 }[Q_FORCE] : SOFT_GL ? 0 : 2;
+try { renderer = new THREE.WebGLRenderer({ canvas, antialias: qLevel > 0, alpha: true, powerPreference: "high-performance" }); } catch (e) { renderer = null; }
 const scene = new THREE.Scene();
 const camera = new THREE.PerspectiveCamera(38, 1, 0.1, 500);
 const root = new THREE.Group(); scene.add(root);
-if (renderer) { renderer.setPixelRatio(Math.min(devicePixelRatio || 1, 2)); renderer.setClearColor(0x000000, 0); }
+if (renderer) renderer.setClearColor(0x000000, 0);
+let SW_ = 1, SH_ = 1, canvasRect = { left: 0, top: 0, width: 1, height: 1 };
+function targetPixelRatio(w, h) {
+  const q = QL[qLevel], dpr = Math.min(devicePixelRatio || 1, 2);
+  return clamp(Math.min(dpr, Math.sqrt(q.budget / Math.max(1, w * h))), Math.min(q.minPr, dpr), dpr);
+}
+function applyQuality() {
+  document.body.classList.toggle("lq", !QL[qLevel].glow);
+  window.__quality = { level: qLevel, soft: SOFT_GL, gl: GL_NAME, pr: renderer ? renderer.getPixelRatio() : 0 };
+}
 
 const C = { line: 0xe8f4ff, cyan: 0x7fdbff, hl: 0xffd36b, ok: 0x8ff0c4 };
 const RW = 4.4, D = 4.4, FH = 2.9, SLAB = 0.16, MARG = 0.55, FOUND = 1.25;
@@ -548,7 +574,7 @@ function buildScene(animate) {
   builds.forEach(o => applyBuild(o, animate ? 0 : 1));
   updateRoomLabels(); updateSelection(); renderTitleBlock();
   if (animate) autoRotate = true;
-  dirty = true;
+  invalidate();
 }
 
 const easeOut = p => 1 - Math.pow(1 - p, 3);
@@ -571,6 +597,7 @@ function updateRoomLabels() {
     R.label.exp = [roomCode(f.si, f.gi), ...wrap(title, 78, 11, 700, 3), p >= 1 ? "완공" : pct(p)]; R.label.w = 0;
   });
   labels.filter(L => L.stageIdx !== undefined).forEach(L => { const s = plan.stages[L.stageIdx]; if (s) { L.el.querySelector("em").textContent = `${s.period || ""} · ${pct(stageProgress(s))}`; L.exp = [`${L.stageIdx + 1}F  ${s.name}   ${s.period || ""} · ${pct(stageProgress(s))}`]; L.w = 0; } });
+  invalidate();
 }
 function buildDone() { return performance.now() / 1000 - buildStart > buildEnd; }
 function updateSelection() {
@@ -585,13 +612,14 @@ function updateSelection() {
     R.fill.material.opacity = done ? 0.42 : 0.3;
     R.label.el.classList.toggle("sel", sel);
   });
-  dirty = true;
+  invalidate();
 }
 
 /* ---------------- 카메라 / 오비트 (마우스·터치) ---------------- */
 const orb = { th: 0.62, ph: 1.12, r: 30, tg: new THREE.Vector3() };
 orb.d = { th: orb.th, ph: orb.ph, r: orb.r, tg: orb.tg.clone() };
-let autoRotate = false, dirty = true, userTouched = false;
+let autoRotate = false, dirty = true, userTouched = false, rafId = 0;
+function invalidate() { dirty = true; if (!rafId) rafId = requestAnimationFrame(frame); }
 function safeRect() {
   const w = stage.clientWidth, h = stage.clientHeight, mobile = w < 640;
   const tb = $("#titleblock"), dock = document.querySelector(".dock");
@@ -627,7 +655,7 @@ function fitView(instant) {
   orb.d.th = th; orb.d.ph = ph; orb.d.r = r; orb.d.tg.copy(tg);
   if (instant) { orb.th = th; orb.ph = ph; orb.r = r; orb.tg.copy(tg); }
   homeView = { r, tg: tg.clone() };
-  dirty = true;
+  invalidate();
 }
 let homeView = null, viewShift = 0, viewShiftTarget = 0, viewShiftX = 0, viewShiftXTarget = 0;
 function applyCamera() {
@@ -664,7 +692,7 @@ canvas.addEventListener("pointermove", e => {
     pan(dx / 2, dy / 2);
   }
   ptrs.set(e.pointerId, { x: e.clientX, y: e.clientY });
-  dirty = true;
+  invalidate();
 });
 function endPtr(e) {
   if (!ptrs.has(e.pointerId)) return;
@@ -674,26 +702,32 @@ function endPtr(e) {
 }
 canvas.addEventListener("pointerup", endPtr); canvas.addEventListener("pointercancel", endPtr);
 canvas.addEventListener("contextmenu", e => e.preventDefault());
-canvas.addEventListener("wheel", e => { e.preventDefault(); stopAuto(); orb.d.r = clamp(orb.d.r * Math.exp(e.deltaY * 0.0012), 6, 160); dirty = true; }, { passive: false });
+canvas.addEventListener("wheel", e => { e.preventDefault(); stopAuto(); orb.d.r = clamp(orb.d.r * Math.exp(e.deltaY * 0.0012), 6, 160); invalidate(); }, { passive: false });
 function pan(dx, dy) {
   const s = orb.r * 0.0016, right = new THREE.Vector3(), up = new THREE.Vector3();
   camera.matrix.extractBasis(right, up, new THREE.Vector3());
   orb.d.tg.addScaledVector(right, -dx * s).addScaledVector(up, dy * s);
 }
 const ray = new THREE.Raycaster(), ndc = new THREE.Vector2();
-function hitAt(x, y) {
-  const r = canvas.getBoundingClientRect(); ndc.set((x - r.left) / r.width * 2 - 1, -(y - r.top) / r.height * 2 + 1);
+function hitAt(x, y, fresh) {
+  const r = fresh ? canvas.getBoundingClientRect() : canvasRect; ndc.set((x - r.left) / r.width * 2 - 1, -(y - r.top) / r.height * 2 + 1);
   ray.setFromCamera(ndc, camera); const h = ray.intersectObjects(pickables, false); return h[0]?.object.userData.goalId || null;
 }
-function hover(e) { if (e.pointerType !== "mouse") return; canvas.style.cursor = hitAt(e.clientX, e.clientY) ? "pointer" : "grab"; }
-function pick(x, y) { const id = hitAt(x, y); if (id) openGoal(id); else if (selectedId) closePanel(); }
+let hoverPt = null, hoverRaf = 0;
+function hover(e) {
+  if (e.pointerType !== "mouse") return;
+  hoverPt = [e.clientX, e.clientY];
+  if (!hoverRaf) hoverRaf = requestAnimationFrame(() => { hoverRaf = 0; if (!hoverPt || ptrs.size) return; const c = hitAt(hoverPt[0], hoverPt[1]) ? "pointer" : "grab"; if (canvas.style.cursor !== c) canvas.style.cursor = c; });
+}
+function pick(x, y) { const id = hitAt(x, y, true); if (id) openGoal(id); else if (selectedId) closePanel(); }
 
 /* ---------------- 렌더 루프 ---------------- */
 const v3 = new THREE.Vector3();
 function resize() {
-  const w = stage.clientWidth, h = stage.clientHeight;
-  if (renderer) renderer.setSize(w, h, false);
-  camera.aspect = w / Math.max(1, h); camera.updateProjectionMatrix(); dirty = true;
+  const w = stage.clientWidth, h = stage.clientHeight; SW_ = w; SH_ = h;
+  canvasRect = canvas.getBoundingClientRect();
+  if (renderer) { renderer.setPixelRatio(targetPixelRatio(w, h)); renderer.setSize(w, h, false); applyQuality(); }
+  camera.aspect = w / Math.max(1, h); camera.updateProjectionMatrix(); invalidate();
 }
 function projectLabels(w, h, cb) {
   labels.forEach(L => {
@@ -702,11 +736,21 @@ function projectLabels(w, h, cb) {
     cb(L, (v3.x * 0.5 + 0.5) * w, (-v3.y * 0.5 + 0.5) * h, vis);
   });
 }
-let lastT = performance.now();
+let lastT = performance.now(), lastRendered = false, ftWin = [];
+const AUTO_SPIN = 7, AUTO_EASE = 2.5;  // 착공 후 자동 회전 시간(초), 감속 시간
+/* 적응형 화질: 연속 렌더 중 프레임 간격 중앙값이 25ms를 넘으면 한 단계 낮춤 */
+function trackFrame(ms) {
+  if (Q_FORCE || qLevel === 0 || document.hidden) return;
+  ftWin.push(ms); if (ftWin.length < 40) return;
+  const m = ftWin.slice().sort((a, b) => a - b)[20]; ftWin = [];
+  if (m > 25) { qLevel--; resize(); }
+}
+document.addEventListener("visibilitychange", () => { ftWin = []; lastRendered = false; if (!document.hidden) invalidate(); });
 function frame(now) {
-  requestAnimationFrame(frame);
-  const dt = Math.min(0.05, (now - lastT) / 1000); lastT = now;
-  if (view !== "3d" || !renderer) return;
+  rafId = 0;
+  const gap = now - lastT, dt = Math.min(0.05, gap / 1000); lastT = now;
+  if (view !== "3d" || !renderer || document.hidden) { lastRendered = false; return; }
+  if (lastRendered) trackFrame(gap);
   const t = now / 1000 - buildStart;
   let busy = false;
   if (t <= buildEnd + 0.1) {
@@ -714,7 +758,10 @@ function frame(now) {
     busy = true;
     if (t > buildEnd) updateSelection();
   }
-  if (autoRotate && !userTouched && t > buildEnd - 1.5) { orb.d.th += dt * 0.1; busy = true; }
+  if (autoRotate && !userTouched && t > buildEnd - 1.5) {
+    const k = clamp((buildEnd + AUTO_SPIN + AUTO_EASE - t) / AUTO_EASE, 0, 1);
+    if (k > 0) { orb.d.th += dt * 0.1 * k; busy = true; } else autoRotate = false;
+  }
   if (applyCamera()) busy = true;
   rooms.forEach(R => {
     const f = findGoal(R.id); if (!f) return;
@@ -726,27 +773,32 @@ function frame(now) {
     R.fillEdges.material.opacity = 0.55 * Math.min(1, R.cur * 8);
   });
   if (roofFill) { const tp = totalProgress(); if (Math.abs(tp - roofCur) > 0.001) { roofCur += (tp - roofCur) * Math.min(1, dt * 3); busy = true; } roofFill.material.opacity = 0.12 + roofCur * 0.6; }
-  if (!busy && !dirty) return;
+  if (!busy && !dirty) { lastRendered = false; return; }
   dirty = false;
   renderer.render(scene, camera);
   placeLabels(t);
+  lastRendered = true;
+  if (busy && !rafId) rafId = requestAnimationFrame(frame);
 }
 const PRI = { roof: 0, level: 1, dim: 1, room: 2, value: 2.5, habit: 3 };
 function placeLabels(t) {
-  const w = stage.clientWidth, h = stage.clientHeight, list = [];
+  const w = SW_, h = SH_, list = [];
   projectLabels(w, h, (L, x, y, vis) => { L.sx = x; L.sy = y; L.vis = vis && t > L.showAt; L.dz = v3.z; list.push(L); });
+  for (const L of list) if (!L.w) { L.w = L.el.offsetWidth; L.h = L.el.offsetHeight; }  // 읽기를 한 번에 (레이아웃 스래싱 방지)
   list.sort((a, b) => (a.goalId === selectedId && a.goalId ? -1 : 0) - (b.goalId === selectedId && b.goalId ? -1 : 0) || PRI[a.cls] - PRI[b.cls] || a.dz - b.dz);
   const placed = [];
   list.forEach(L => {
-    if (!L.w) { L.w = L.el.offsetWidth; L.h = L.el.offsetHeight; }
     const lw = L.rot ? L.h : L.w, lh = L.rot ? L.w : L.h;
     const rx = L.align === "left" ? L.sx : L.sx - lw / 2, ry = L.sy - lh / 2;
     let show = L.vis && L.w > 0;
     if (show && PRI[L.cls] >= 2) for (const q of placed) { if (rx < q[0] + q[2] + 2 && rx + lw + 2 > q[0] && ry < q[1] + q[3] && ry + lh > q[1]) { show = false; break; } }
     if (show) placed.push([rx, ry, lw, lh]);
+    const wasShown = L.shown;
     if (show !== L.shown) { L.el.classList.toggle("show", show); L.shown = show; }
     const ox = L.align === "left" ? "0%" : "-50%";
-    L.el.style.transform = `translate(${L.sx.toFixed(1)}px,${L.sy.toFixed(1)}px) translate(${ox},-50%)${L.rot ? " rotate(-90deg)" : ""}`;
+    if (!show && !wasShown && L.tf) return;  // 숨겨진 라벨은 위치 갱신 생략
+    const tf = `translate(${L.sx.toFixed(1)}px,${L.sy.toFixed(1)}px) translate(${ox},-50%)${L.rot ? " rotate(-90deg)" : ""}`;
+    if (tf !== L.tf) { L.el.style.transform = tf; L.tf = tf; }
   });
 }
 
@@ -766,15 +818,15 @@ function renderTitleBlock() {
 const panel = $("#panel");
 function openGoal(id) {
   selectedId = id; updateSelection(); renderPanel(); panel.classList.add("open"); document.body.classList.add("panel-open");
-  if (stage.clientWidth >= 640) { viewShiftXTarget = panel.offsetWidth / 2 - 20; dirty = true; }
+  if (stage.clientWidth >= 640) { viewShiftXTarget = panel.offsetWidth / 2 - 20; invalidate(); }
   if (view === "3d" && stage.clientWidth < 640) {
     const R = rooms.find(r => r.id === id);
-    if (R) { const v = new THREE.Vector3(); R.grp.getWorldPosition(v); v.y += FH * 0.4; orb.d.tg.copy(v); orb.d.r = Math.min(orb.d.r, (homeView ? homeView.r : 30) * 0.62); viewShiftTarget = stage.clientHeight * 0.3; stopAuto(); dirty = true; }
+    if (R) { const v = new THREE.Vector3(); R.grp.getWorldPosition(v); v.y += FH * 0.4; orb.d.tg.copy(v); orb.d.r = Math.min(orb.d.r, (homeView ? homeView.r : 30) * 0.62); viewShiftTarget = stage.clientHeight * 0.3; stopAuto(); invalidate(); }
   }
   if (view === "plan") renderPlan();
   hideWelcome();
 }
-function closePanel() { selectedId = null; panel.classList.remove("open"); document.body.classList.remove("panel-open"); viewShiftTarget = 0; viewShiftXTarget = 0; dirty = true; updateSelection(); if (view === "plan") renderPlan(); }
+function closePanel() { selectedId = null; panel.classList.remove("open"); document.body.classList.remove("panel-open"); viewShiftTarget = 0; viewShiftXTarget = 0; invalidate(); updateSelection(); if (view === "plan") renderPlan(); }
 const chkSvg = `<svg viewBox="0 0 24 24" fill="none" stroke="#082c5c" stroke-width="3.5"><path d="M5 12l5 5 9-10"/></svg>`;
 function renderPanel() {
   const f = findGoal(selectedId); if (!f) { closePanel(); return; }
@@ -823,7 +875,7 @@ function renderPanel() {
   });
 }
 function progressChanged(g, before) {
-  save(); updateRoomLabels(); updateSelection(); renderTitleBlock(); dirty = true;
+  save(); updateRoomLabels(); updateSelection(); renderTitleBlock(); invalidate();
   if (goalProgress(g) >= 1 && before < 1) toast(`🏗️ '${g.title}' 완공!`);
   if (view === "plan") renderPlan();
 }
@@ -935,7 +987,7 @@ $("#plan").addEventListener("click", e => { const r = e.target.closest(".room");
 function setView(v) {
   view = v; document.body.classList.toggle("view-plan", v === "plan");
   $("#v3d").classList.toggle("on", v === "3d"); $("#vplan").classList.toggle("on", v === "plan");
-  if (v === "plan") renderPlan(); else { resize(); dirty = true; }
+  if (v === "plan") renderPlan(); else { resize(); invalidate(); }
   $("#dkView").style.display = v === "plan" ? "none" : "";
 }
 $("#v3d").onclick = () => setView("3d"); $("#vplan").onclick = () => setView("plan");
@@ -1227,7 +1279,7 @@ function init() {
   let welcomed = false; try { welcomed = !!localStorage.getItem(WKEY); } catch (e) {}
   if (fresh && !welcomed) setTimeout(showWelcome, 1400);
   if (shared) toast("공유받은 도면을 불러왔어요");
-  requestAnimationFrame(frame);
+  invalidate();
 }
 let rzT; window.addEventListener("resize", () => { resize(); clearTimeout(rzT); rzT = setTimeout(() => { if (view === "plan") renderPlan(); else if (!userTouched) fitView(false); }, 150); });
 init();
